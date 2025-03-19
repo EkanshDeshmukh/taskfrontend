@@ -14,8 +14,6 @@ const MenuBar = () => {
         <div className={`h-0.5 w-10 bg-white transition-opacity duration-300 ${isOpen ? 'opacity-0' : 'opacity-100'}`}></div>
         <div className={`h-0.5 w-10 bg-white transform transition-transform duration-300 ${isOpen ? '-rotate-45 -translate-y-2' : ''}`}></div>
       </div>
-      
-      
     </div>
   );
 };

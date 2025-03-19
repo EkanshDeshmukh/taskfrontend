@@ -1,14 +1,21 @@
 import React, { useState } from 'react';
 import './App.css';
 import Home from '../src/components/Home'
-import HomePage from './components/HomePage';
- 
+import Footer from './components/Footer';
+import FAQSection from './components/FAQ';
+
+
 
 function App() {
   return (
      <div>
        <Home/>
-       <HomePage/>
+       
+        
+        <FAQSection/>
+       
+        <Footer/>  
+
      </div>
   );
 }
