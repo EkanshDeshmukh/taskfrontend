@@ -7,16 +7,13 @@ const boxes = [
   { id: 3, title: "Option 3", desc: "Another selectable option." },
 ];
 gsap.registerPlugin(ScrollTrigger);
-const App = () => {
+const BoxAni = () => {
   const sectionRef = useRef(null);
   const boxRef = useRef(null);
   const boxRef1 = useRef(null);
   const boxRef2 = useRef(null);
  
-  const handleOptionClick = (option) => {
-    setSelected(option);
-    setIsOpen(false);
-  };
+  
  
   const [selected, setSelected] = useState(null);
   useEffect(() => {
@@ -52,24 +49,7 @@ const App = () => {
 
   return (
     <>
-    <div>
-       <div className="flex flex-wrap justify-center gap-6 p-8">
-      {boxes.map((box) => (
-        <div
-          key={box.id}
-          onClick={() => setSelected(box.id)}
-          className={`w-60 h-40 p-5 rounded-2xl shadow-md cursor-pointer transition-all duration-300 ${
-            selected === box.id
-              ? 'bg-indigo-600 text-white scale-105 shadow-lg'
-              : 'bg-white hover:bg-indigo-100'
-          }`}
-        >
-          <h3 className="text-xl font-semibold mb-2">{box.title}</h3>
-          <p className="text-sm">{box.desc}</p>
-        </div>
-      ))}
-    </div>
-    </div>
+    
     <div id="page" ref={sectionRef} className='relative w-full h-[100vh] overflow-hidden'>
     <section className="bg-[#e9c4f0] absolute z-[9] top-0 w-full h-[100vh] text-black py-20 px-6 md:px-24 rounded-bl-[60px]">
   <div className="flex flex-col  justify-between w-full items-start gap-16">
@@ -224,4 +204,4 @@ const App = () => {
   )
 }
 
-export default App
+export default BoxAni
