@@ -36,8 +36,10 @@ const BrandingProblems = () => {
   };
 
   return (
-    <div style={{background: 'linear-gradient(180deg, #070E0E, #081818)' }} className="min-h-screen text-white flex items-center justify-center">
-      <main className="px-4 sm:px-8 py-16 relative w-full max-w-6xl mx-auto">
+    <div style={{background: 'linear-gradient(180deg, #070E0E, #081818)' }} className="gap-32 min-h-screen text-white flex flex-col items-center justify-center">
+      <h1 className='font-[font1] text-7xl   w-full text-left text-white'>Brand challenges we solve.</h1>
+
+<main className="px-4  sm:px-16 py-96 relative w-full max-w-6xl mx-auto">
         {/* Pink Banner */}
         <motion.div 
           className="absolute left-0 sm:left-12 top-0 transform -rotate-6 z-10" 
@@ -55,17 +57,17 @@ const BrandingProblems = () => {
           {problems.map((problem, index) => (
             <div key={index} className="border-white flex items-center flex-col justify-end border-gray-700 last:border-b-0 py-4 my-2 w-full">
               <div 
-                className="flex h-32 items-center py-4 sm:py-6 cursor-pointer transition-all duration-300 hover:opacity-80 w-full" 
+                className="flex h-32 justify-center items-center py-4 sm:py-6 cursor-pointer transition-all duration-300 hover:opacity-80 w-full" 
                 onClick={() => toggleProblem(index)}
               >
                 <motion.div 
-                  className="mr-4 sm:mr-6 text-2xl sm:text-3xl" 
+                  className="mr-4 sm:mr-6 text-5xl sm:text-6xl" 
                   animate={{ rotate: index === activeIndex ? 45 : 0 }} 
                   transition={{ duration: 0.3 }}
                 >
                   +
                 </motion.div>
-                <h3 className="text-3xl font-[font1] sm:text-7xl font-bold">{problem.title}</h3>
+                <h3 className="text-3xl  font-[font1] sm:text-7xl font-bold">{problem.title}</h3>
               </div>
              
               <div className="w-full flex items-center justify-center">
@@ -78,7 +80,7 @@ const BrandingProblems = () => {
                       transition={{ duration: 0.5 }}
                       className="w-full flex justify-center"
                     >
-                      <p className="text-left w-full sm:w-1/2 sm:pl-16 pr-4 sm:pr-8 text-lg sm:text-xl text-gray-300">
+                      <p className="text-center w-full sm:w-1/2 sm:pl-16 pr-4 sm:pr-8 text-lg sm:text-xl text-gray-300">
                         {problem.content}
                       </p>
                     </motion.div>

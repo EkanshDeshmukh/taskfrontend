@@ -1,0 +1,227 @@
+import React,{ useEffect, useRef, useState } from 'react'
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+const boxes = [
+  { id: 1, title: "Option 1", desc: "This is the first option." },
+  { id: 2, title: "Option 2", desc: "Second option with details." },
+  { id: 3, title: "Option 3", desc: "Another selectable option." },
+];
+gsap.registerPlugin(ScrollTrigger);
+const App = () => {
+  const sectionRef = useRef(null);
+  const boxRef = useRef(null);
+  const boxRef1 = useRef(null);
+  const boxRef2 = useRef(null);
+ 
+  const handleOptionClick = (option) => {
+    setSelected(option);
+    setIsOpen(false);
+  };
+ 
+  const [selected, setSelected] = useState(null);
+  useEffect(() => {
+    let tl  = gsap.timeline(
+      {
+        scrollTrigger: {
+          trigger:sectionRef.current,
+              scroller:"body",
+              start:"top top",
+              end:"100% -200%",
+              scrub:true,
+              pin:true,
+              markers:true,
+        }
+      }
+    )
+
+   tl
+   .to(boxRef.current,{
+    top:"0%",
+     duration:1.5
+   })
+   .to(boxRef1.current,{
+    top:"0%",
+     duration:1.5
+   })
+   .to(boxRef2.current,{
+    top:"0%",
+     duration:1.5
+   })
+  
+  }, []);
+
+  return (
+    <>
+    <div>
+       <div className="flex flex-wrap justify-center gap-6 p-8">
+      {boxes.map((box) => (
+        <div
+          key={box.id}
+          onClick={() => setSelected(box.id)}
+          className={`w-60 h-40 p-5 rounded-2xl shadow-md cursor-pointer transition-all duration-300 ${
+            selected === box.id
+              ? 'bg-indigo-600 text-white scale-105 shadow-lg'
+              : 'bg-white hover:bg-indigo-100'
+          }`}
+        >
+          <h3 className="text-xl font-semibold mb-2">{box.title}</h3>
+          <p className="text-sm">{box.desc}</p>
+        </div>
+      ))}
+    </div>
+    </div>
+    <div id="page" ref={sectionRef} className='relative w-full h-[100vh] overflow-hidden'>
+    <section className="bg-[#e9c4f0] absolute z-[9] top-0 w-full h-[100vh] text-black py-20 px-6 md:px-24 rounded-bl-[60px]">
+  <div className="flex flex-col  justify-between w-full items-start gap-16">
+
+    <div className=" flex relative justify-between items-center   w-full">
+      <h1 className="text-[140px] leading-none font-black tracking-tight">BRAND<span className="inline-block w-5 h-5 bg-black rounded-full ml-2 mb-5"></span></h1>
+
+     
+      <button className="mt-12 border-2 border-black rounded-full px-10 py-5 flex items-center gap-4 hover:bg-black hover:text-white transition-all">
+        TELL ME MORE
+        <span className="text-2xl">↗</span>
+      </button>
+    </div>
+
+    <div className=" flex relative w-full justify-between px-[8vw] items-baseline">
+      <div className='flex flex-col'>
+      <h2 className="mt-16 text-3xl font-extrabold">YOUR MOST VALUABLE ASSET.</h2>
+      <p className="mt-6 text-xl leading-relaxed max-w-[600px]">
+        Branding lays all the groundwork for who you are. As a leading brand agency, we'll craft your visual and verbal story, 
+        with a balance of inspiration and aspiration – connecting with more of the right audience. From strategy to activation 
+        and beyond, consider every stone unturned, to ensure your brand is brimming with a distinct personality.
+      </p>
+      </div>
+
+      <ul className="space-y-1 text-lg leading-relaxed">
+        <li>BRAND ACTIVATION</li>
+        <li>BRAND ARCHITECTURE</li>
+        <li>BRAND IDENTITY</li>
+        <li>BRAND NAMING</li>
+        <li>BRAND STRATEGY</li>
+        <li>BRAND SYSTEMS MANAGEMENT</li>
+        <li>BRAND VOICE</li>
+      </ul>
+
+     
+    </div>
+  </div>
+    </section>
+    <section ref={boxRef} className="bg-[#A9F0D1] absolute z-[99] top-[100%] w-full h-[100vh] text-black py-20 px-6 md:px-24 rounded-bl-[60px]">
+  <div className="flex flex-col  justify-between w-full items-start gap-16">
+
+    <div className=" flex relative justify-between items-center   w-full">
+      <h1 className="text-[140px] leading-none font-black tracking-tight">BRAND<span className="inline-block w-5 h-5 bg-black rounded-full ml-2 mb-5"></span></h1>
+
+     
+      <button className="mt-12 border-2 border-black rounded-full px-10 py-5 flex items-center gap-4 hover:bg-black hover:text-white transition-all">
+        TELL ME MORE
+        <span className="text-2xl">↗</span>
+      </button>
+    </div>
+
+    <div className=" flex relative w-full justify-between px-[8vw] items-baseline">
+      <div className='flex flex-col'>
+      <h2 className="mt-16 text-3xl font-extrabold">YOUR MOST VALUABLE ASSET.</h2>
+      <p className="mt-6 text-xl leading-relaxed max-w-[600px]">
+        Branding lays all the groundwork for who you are. As a leading brand agency, we'll craft your visual and verbal story, 
+        with a balance of inspiration and aspiration – connecting with more of the right audience. From strategy to activation 
+        and beyond, consider every stone unturned, to ensure your brand is brimming with a distinct personality.
+      </p>
+      </div>
+
+      <ul className="space-y-1 text-lg leading-relaxed">
+        <li>BRAND ACTIVATION</li>
+        <li>BRAND ARCHITECTURE</li>
+        <li>BRAND IDENTITY</li>
+        <li>BRAND NAMING</li>
+        <li>BRAND STRATEGY</li>
+        <li>BRAND SYSTEMS MANAGEMENT</li>
+        <li>BRAND VOICE</li>
+      </ul>
+
+     
+    </div>
+  </div>
+    </section>
+    <section ref={boxRef1} className="bg-[#ADE8FF] absolute z-[999] top-[100%] w-full h-[100vh] text-black py-20 px-6 md:px-24 rounded-bl-[60px]">
+  <div className="flex flex-col  justify-between w-full items-start gap-16">
+
+    <div className=" flex relative justify-between items-center   w-full">
+      <h1 className="text-[140px] leading-none font-black tracking-tight">BRAND<span className="inline-block w-5 h-5 bg-black rounded-full ml-2 mb-5"></span></h1>
+
+     
+      <button className="mt-12 border-2 border-black rounded-full px-10 py-5 flex items-center gap-4 hover:bg-black hover:text-white transition-all">
+        TELL ME MORE
+        <span className="text-2xl">↗</span>
+      </button>
+    </div>
+
+    <div className=" flex relative w-full justify-between px-[8vw] items-baseline">
+      <div className='flex flex-col'>
+      <h2 className="mt-16 text-3xl font-extrabold">YOUR MOST VALUABLE ASSET.</h2>
+      <p className="mt-6 text-xl leading-relaxed max-w-[600px]">
+        Branding lays all the groundwork for who you are. As a leading brand agency, we'll craft your visual and verbal story, 
+        with a balance of inspiration and aspiration – connecting with more of the right audience. From strategy to activation 
+        and beyond, consider every stone unturned, to ensure your brand is brimming with a distinct personality.
+      </p>
+      </div>
+
+      <ul className="space-y-1 text-lg leading-relaxed">
+        <li>BRAND ACTIVATION</li>
+        <li>BRAND ARCHITECTURE</li>
+        <li>BRAND IDENTITY</li>
+        <li>BRAND NAMING</li>
+        <li>BRAND STRATEGY</li>
+        <li>BRAND SYSTEMS MANAGEMENT</li>
+        <li>BRAND VOICE</li>
+      </ul>
+
+     
+    </div>
+  </div>
+    </section>
+    <section ref={boxRef2} className="bg-[#E5BEED] absolute z-[9999] top-[100%] w-full h-[100vh] text-black py-20 px-6 md:px-24 rounded-bl-[60px]">
+  <div className="flex flex-col  justify-between w-full items-start gap-16">
+
+    <div className=" flex relative justify-between items-center   w-full">
+      <h1 className="text-[140px] leading-none font-black tracking-tight">BRAND<span className="inline-block w-5 h-5 bg-black rounded-full ml-2 mb-5"></span></h1>
+
+     
+      <button className="mt-12 border-2 border-black rounded-full px-10 py-5 flex items-center gap-4 hover:bg-black hover:text-white transition-all">
+        TELL ME MORE
+        <span className="text-2xl">↗</span>
+      </button>
+    </div>
+
+    <div className=" flex relative w-full justify-between px-[8vw] items-baseline">
+      <div className='flex flex-col'>
+      <h2 className="mt-16 text-3xl font-extrabold">YOUR MOST VALUABLE ASSET.</h2>
+      <p className="mt-6 text-xl leading-relaxed max-w-[600px]">
+        Branding lays all the groundwork for who you are. As a leading brand agency, we'll craft your visual and verbal story, 
+        with a balance of inspiration and aspiration – connecting with more of the right audience. From strategy to activation 
+        and beyond, consider every stone unturned, to ensure your brand is brimming with a distinct personality.
+      </p>
+      </div>
+
+      <ul className="space-y-1 text-lg leading-relaxed">
+        <li>BRAND ACTIVATION</li>
+        <li>BRAND ARCHITECTURE</li>
+        <li>BRAND IDENTITY</li>
+        <li>BRAND NAMING</li>
+        <li>BRAND STRATEGY</li>
+        <li>BRAND SYSTEMS MANAGEMENT</li>
+        <li>BRAND VOICE</li>
+      </ul>
+
+     
+    </div>
+  </div>
+    </section>
+    </div>
+    </>
+  )
+}
+
+export default App
