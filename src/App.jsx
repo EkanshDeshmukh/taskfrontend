@@ -6,12 +6,9 @@ gsap.registerPlugin(ScrollTrigger);
 import Home from '../src/components/Home'
 import Footer from './components/Footer';
 import FAQSection from './components/FAQ';
-import BoxAni from './components/BoxAni';
-import ThirdPage from './components/ThirdPage';
-import FourthPage from './components/FourthPage';
-import FifthPage from './components/FifthPage';
-import Banner from './components/Banner';
+import FourthPage from './components/HowWeWork';
 import SecondPage  from './components/SecondPage';
+import MarqueeWithSwipper  from './components/MarqueeWithSwipper';
 
 
 
@@ -213,9 +210,9 @@ function App() {
         {/* <FifthPage/>
         <Banner/> */}
 
-        
+<MarqueeWithSwipper/>
         <FAQSection/>
-       
+      
         <Footer/>  
 
      </div>
