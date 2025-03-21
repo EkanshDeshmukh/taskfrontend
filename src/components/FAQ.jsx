@@ -36,64 +36,83 @@ const BrandingProblems = () => {
   };
 
   return (
-    <div style={{background: 'linear-gradient(180deg, #070E0E, #081818)' }} className="gap-32 min-h-screen text-white flex flex-col items-center justify-center">
-      <h1 className='font-[font1] text-7xl   w-full text-left text-white'>Brand challenges we solve.</h1>
+    <div style={{background: 'linear-gradient(180deg, #070E0E, #081818)' }} className="min-h-screen text-white">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-16 py-12 sm:py-16 md:py-24">
+        <h1 className="font-[font1] text-4xl sm:text-5xl md:text-7xl mb-12 sm:mb-16 md:mb-24">
+          Brand challenges we solve.
+        </h1>
 
-<main className="px-4  sm:px-16 py-96 relative w-full max-w-6xl mx-auto">
-        {/* Pink Banner */}
-        <motion.div 
-          className="absolute left-0 sm:left-12 top-0 transform -rotate-6 z-10" 
-          initial={{ opacity: 0, y: -50 }} 
-          animate={{ opacity: 1, y: 0 }} 
-          transition={{ duration: 0.6 }}
-        >
-          <div className="px-6 sm:px-10 py-3 sm:py-4">
-            <h2 className="text-3xl bg-pink-200 font-[font1] sm:text-5xl font-black text-black">MOST COMMON PROBLEMS</h2>
-          </div>
-        </motion.div>
+        <div className="relative">
+          {/* Pink Banner */}
+          <motion.div 
+            className="absolute -top-8 sm:-top-10 md:-top-16 -left-2 sm:-left-4 md:-left-8 transform -rotate-6 z-10" 
+            initial={{ opacity: 0, y: -50 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 0.6 }}
+          >
+            <div className="px-3 py-2 sm:px-6 sm:py-3 md:px-10 md:py-5">
+              <h2 className="text-xl sm:text-3xl md:text-5xl bg-pink-200 font-[font1] font-black text-black whitespace-nowrap py-1 px-2 sm:px-4">
+                MOST COMMON PROBLEMS
+              </h2>
+            </div>
+          </motion.div>
 
-        {/* Problems Container */}
-        <div className="mt-40 flex items-center justify-center flex-col w-full border-2 border-white-600 rounded-3xl p-6 sm:p-12 relative">
-          {problems.map((problem, index) => (
-            <div key={index} className="border-white flex items-center flex-col justify-end border-gray-700 last:border-b-0 py-4 my-2 w-full">
+          {/* Problems Container */}
+          <div className="mt-12 sm:mt-16 md:mt-24 border rounded-xl sm:rounded-2xl md:rounded-3xl border-gray-600 p-4 sm:p-6 md:p-12 relative">
+            {problems.map((problem, index) => (
               <div 
-                className="flex h-32 justify-center items-center py-4 sm:py-6 cursor-pointer transition-all duration-300 hover:opacity-80 w-full" 
-                onClick={() => toggleProblem(index)}
+                key={index} 
+                className="border-b border-gray-700 last:border-b-0 py-4 sm:py-6 md:py-8"
               >
-                <motion.div 
-                  className="mr-4 sm:mr-6 text-5xl sm:text-6xl" 
-                  animate={{ rotate: index === activeIndex ? 45 : 0 }} 
-                  transition={{ duration: 0.3 }}
+                <button 
+                  className="flex items-center w-full justify-start text-left cursor-pointer hover:opacity-80 transition-opacity duration-200" 
+                  onClick={() => toggleProblem(index)}
+                  aria-expanded={index === activeIndex}
+                  aria-controls={`problem-content-${index}`}
                 >
-                  +
-                </motion.div>
-                <h3 className="text-3xl  font-[font1] sm:text-7xl font-bold">{problem.title}</h3>
-              </div>
-             
-              <div className="w-full flex items-center justify-center">
+                  <div className="mr-3 sm:mr-4 md:mr-6 text-xl sm:text-2xl md:text-3xl flex-shrink-0">
+                    {index === activeIndex ? (
+                      <span className="text-2xl sm:text-3xl md:text-4xl">×</span>
+                    ) : (
+                      <span className="text-2xl sm:text-3xl md:text-4xl">+</span>
+                    )}
+                  </div>
+                  <h3 className="font-[font1] text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold">
+                    {problem.title}
+                  </h3>
+                </button>
+                
                 <AnimatePresence>
                   {index === activeIndex && (
                     <motion.div
+                      id={`problem-content-${index}`}
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: 'auto' }}
                       exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.5 }}
-                      className="w-full flex justify-center"
+                      transition={{ duration: 0.4 }}
                     >
-                      <p className="text-center w-full sm:w-1/2 sm:pl-16 pr-4 sm:pr-8 text-lg sm:text-xl text-gray-300">
-                        {problem.content}
-                      </p>
+                      <div className="pl-10 sm:pl-12 md:pl-16 pr-2 sm:pr-4 pt-4 sm:pt-6 pb-2 sm:pb-4">
+                        <p className="text-base sm:text-lg text-gray-300 font-[font2] max-w-3xl">
+                          {problem.content}
+                        </p>
+                      </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
               </div>
-
-              <div className='w-[70vw] h-[1px] bg-white'></div>
-             
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </main>
+        
+        {/* Work with us button */}
+        <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8 z-20">
+          <div className="bg-green-300 text-black rounded-full w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 flex flex-col items-center justify-center font-[font1] font-bold text-sm sm:text-lg md:text-2xl leading-tight cursor-pointer hover:bg-green-400 transition-colors duration-300">
+            <div className="text-center">
+              WORK<br />WITH US?
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
