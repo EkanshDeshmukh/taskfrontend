@@ -10,6 +10,8 @@ import FourthPage from './components/HowWeWork';
 import SecondPage  from './components/SecondPage';
 import MarqueeWithSwipper  from './components/MarqueeWithSwipper';
 import ThirdPage from './components/ThirdPage';
+import Blog from './components/Blog';
+
 
 
 
@@ -210,9 +212,9 @@ function App() {
         <FourthPage/>
         
 
-<MarqueeWithSwipper/>
+          <MarqueeWithSwipper/>
         <FAQSection/>
-      
+      <Blog/>
         <Footer/>  
 
      </div>
