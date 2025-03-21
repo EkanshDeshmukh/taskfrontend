@@ -143,9 +143,7 @@ const Footer = () => {
               <img src="/api/placeholder/100/60" alt="Clutch" className="h-12" />
               <img src="/api/placeholder/100/60" alt="B Corporation" className="h-12" />
               <img src="/api/placeholder/100/60" alt="Climate Emergency" className="h-12" />
-              <div className="bg-emerald-400 rounded-full flex items-center justify-center p-4">
-                <p className="text-black font-bold text-center font-[font2]">WORK WITH US?</p>
-              </div>
+              
             </div>
           </div>
         </div>

@@ -1,19 +1,30 @@
 import React, { useState, useEffect } from 'react';
 
+
+
 const MenuBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [likes, setLikes] = useState(0);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const handleLike = () => setLikes(likes + 1);
 
   return (
-    <div className="cursor-pointer relative z-10" onClick={toggleMenu}>
-      <div className="flex flex-col gap-3 w-10 h-10 justify-center items-center">
-        <div className={`h-0.5 w-10 bg-white transform transition-transform duration-300 ${isOpen ? 'rotate-45 translate-y-2' : ''}`}></div>
-        <div className={`h-0.5 w-10 bg-white transition-opacity duration-300 ${isOpen ? 'opacity-0' : 'opacity-100'}`}></div>
-        <div className={`h-0.5 w-10 bg-white transform transition-transform duration-300 ${isOpen ? '-rotate-45 -translate-y-2' : ''}`}></div>
+    <div>
+      <div 
+        className="cursor-pointer relative z-10" 
+        onClick={() => setIsOpen((prev) => !prev)}
+        aria-label={isOpen ? 'Close menu' : 'Open menu'}
+      >
+        <div className="flex flex-col gap-2 w-10 h-10 justify-center items-center">
+          <span
+            className={`h-0.5 w-10 bg-white transform transition-transform duration-300 ${isOpen ? 'rotate-45 translate-y-1' : ''}`}
+          ></span>
+          <span
+            className={`h-0.5 w-10 bg-white transform transition-transform duration-300 ${isOpen ? '-rotate-45 -translate-y-1' : ''}`}
+          ></span>
+        </div>
       </div>
+       
     </div>
   );
 };
@@ -72,7 +83,10 @@ function Home() {
             <div className="w-12 h-12 md:w-16 md:h-16 bg-emerald-400 flex items-center justify-center rounded-full group-hover:shadow-lg group-hover:shadow-emerald-500/30 transition-all duration-300">
               <div className="w-0 h-0 border-t-[8px] md:border-t-[12px] border-b-[8px] md:border-b-[12px] border-l-[12px] md:border-l-[16px] border-transparent border-l-black"></div>
             </div>
-            <p className="text-sm md:text-lg text-gray-300 group-hover:text-emerald-400 transition-colors duration-300">PLAY OUR SHOWREEL</p>
+            <p className="text-sm md:text-lg text-gray-300 transform translate-x-[-10px] opacity-0 group-hover:translate-y-1 group-hover:opacity-100 transition-all duration-300">
+  PLAY OUR SHOWREEL
+</p>
+
           </div>
         </div>
 
