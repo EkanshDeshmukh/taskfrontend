@@ -2,14 +2,14 @@ import React from 'react';
 
 const ThirdPage = () => {
   return (
-    <div className="w-full min-h-screen bg-black text-white flex flex-col md:flex-row p-8 md:p-20 space-y-8 md:space-y-0 md:space-x-12">
+    <div className="w-full min-h-screen bg-black text-white flex flex-col  md:flex-row p-8 md:p-20 space-y-8 md:space-y-0 md:space-x-12">
       {/* Left Section - Text Content */}
       <div className="w-full md:w-1/2">
-        <h1 className="font1 text-4xl md:text-6xl font-extrabold mb-6 leading-tight">Goodbye tangled brand.<br />Hello precision.</h1>
+        <h1 className="font1 text-4xl md:text-7xl font-extrabold mb-6 leading-tight">Goodbye tangled brand.<br />Hello precision.</h1>
       </div>
 
       {/* Right Section - Description */}
-      <div className="w-full md:w-1/2 flex flex-col justify-start">
+      <div className="w-full md:w-1/2 md:mt-20 flex flex-col justify-start">
         <h2 className="font1 text-3xl md:text-4xl font-semibold mb-6">Elevate your brand with a leading creative agency</h2>
         <p className="font2 text-lg text-gray-300 mb-8">
           Brand clarity is essential for growth, because it ensures you don’t fall into the trap of speaking to everyone and anyone. Having a clearly defined proposition that targets the right audience is the only way to position your brand clearly and create messaging and content that resonates.

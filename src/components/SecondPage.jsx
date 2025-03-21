@@ -3,9 +3,7 @@ import React from 'react';
 export default function BrandingSection() {
   return (
     <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center px-4 py-16 relative">
-      {/* Small green dot at the top */}
-      <div className="absolute top-6 w-2 h-2 rounded-full bg-green-400"></div>
-      
+       
       <div className="max-w-6xl mx-auto text-center px-4">
         {/* Main headline with compressed font */}
         <h1 className="font-[font1] text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-center mb-16 leading-[0.9] tracking-tight">

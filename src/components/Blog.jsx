@@ -1,154 +1,82 @@
 import React from 'react';
 
 const BlogLayout = () => {
-  const imageUrl = "https://i.pinimg.com/736x/8c/89/5d/8c895d68027d0c947c837caf3753ed60.jpg";
-  
+  const articles = [
+    {
+      image: "https://d2hq2vp6n3e7lp.cloudfront.net/news-articles/thumbnails/The-ultimate-guide-to-SEO-and-content-marketing-using-SE-Ranking_Thumbnail.png",
+      title: "The ultimate guide to SEO and content marketing using SE Ranking",
+      excerpt: "SEO and content marketing are two sides of the same coin. And without one, the other…",
+      categories: ["CONTENT", "MARKETING", "DIGITAL"]
+    },
+    {
+      image: "https://d2hq2vp6n3e7lp.cloudfront.net/news-articles/thumbnails/Proof-in-the-purpose_Thumbnail.png",
+      title: "Proof in the purpose: how B Corp certification drives business success",
+      excerpt: "The B Corp certification is a badge of honour for businesses that are committed to…",
+      categories: ["PURPOSE", "CERTIFICATION"]
+    },
+    {
+      image: "https://d2hq2vp6n3e7lp.cloudfront.net/news-articles/thumbnails/Why-strong-branding-wins-bids-and-tenders-for-B2B-businesses_Thumbnail.png",
+      title: "Eight reasons why branding and design matters in bids & tenders",
+      excerpt: "Branding and design are often overlooked in the bids and tenders process. But they…",
+      categories: ["BRAND", "BIDS & TENDERS", "DESIGN"]
+    },
+    {
+      image: "https://d2hq2vp6n3e7lp.cloudfront.net/news-articles/thumbnails/How-generative-AI-is-revolutionising-digital-marketing-and-SEO_Thumbnail.png",
+      title: "How generative AI is revolutionising digital marketing and SEO",
+      excerpt: "Generative AI is revolutionising digital marketing and SEO. But what is it, and how…",
+      categories: ["CONTENT", "MARKETING", "DIGITAL"]
+    }
+  ];
+
   return (
-    <div className="w-full bg-black text-white min-h-screen">
-      {/* Header Section */}
-      <header className="p-8">
-        <h1 className="text-5xl font-bold mb-4" style={{ fontFamily: 'font1' }}>
-          Thoughts and musings of a London branding agency
-        </h1>
-        <p className="text-xl mb-8" style={{ fontFamily: 'font2' }}>
-          Check out the latest insights from our creative agency, about Brand, Digital, Social and Content.
-        </p>
-        <div className="h-2 w-2 bg-green-400 rounded-full mx-auto mb-8"></div>
-      </header>
-
-      {/* Blog Grid Section - Fixed Two Column Layout */}
-      <div className="flex flex-wrap p-8">
-        {/* Left Column */}
-        <div className="w-full md:w-1/2 pr-0 md:pr-4">
-          {/* First Article - Left Top */}
-          <div className="mb-8">
-            <div className="rounded-lg overflow-hidden mb-4">
-              <img 
-                src={imageUrl} 
-                alt="Article thumbnail" 
-                className="w-full h-64 object-cover"
-              />
-            </div>
-            <div className="flex gap-2 mb-3">
-              <span className="px-4 py-1 bg-white text-black rounded-full text-sm" style={{ fontFamily: 'font2' }}>
-                CONTENT
-              </span>
-              <span className="px-4 py-1 bg-white text-black rounded-full text-sm" style={{ fontFamily: 'font2' }}>
-                MARKETING
-              </span>
-              <span className="px-4 py-1 bg-white text-black rounded-full text-sm" style={{ fontFamily: 'font2' }}>
-                DIGITAL
-              </span>
-            </div>
-            <h2 className="text-3xl font-bold mb-2" style={{ fontFamily: 'font1' }}>
-              The ultimate guide to SEO and content marketing using SE Ranking
-            </h2>
-            <div className="flex items-center mt-4">
-              <div className="w-6 h-1 bg-white mr-2"></div>
-            </div>
-          </div>
-
-          {/* Third Article - Left Bottom */}
-          <div className="mb-8">
-            <div className="rounded-lg overflow-hidden mb-4">
-              <img 
-                src={imageUrl} 
-                alt="Article thumbnail" 
-                className="w-full h-64 object-cover"
-              />
-            </div>
-            <div className="flex gap-2 mb-3">
-              <span className="px-4 py-1 bg-white text-black rounded-full text-sm" style={{ fontFamily: 'font2' }}>
-                BRAND
-              </span>
-              <span className="px-4 py-1 bg-white text-black rounded-full text-sm" style={{ fontFamily: 'font2' }}>
-                BIDS & TENDERS
-              </span>
-              <span className="px-4 py-1 bg-white text-black rounded-full text-sm" style={{ fontFamily: 'font2' }}>
-                DESIGN
-              </span>
-            </div>
-            <h2 className="text-3xl font-bold mb-2" style={{ fontFamily: 'font1' }}>
-              Eight reasons why branding and design matters in bids & tenders
-            </h2>
-            <p className="text-gray-300 mb-2" style={{ fontFamily: 'font2' }}>
-              Winning a bid isn't simply about having the best offer. In fact, it's frequently not the...
-            </p>
-            <div className="flex items-center">
-              <div className="w-6 h-1 bg-white mr-2"></div>
-            </div>
-          </div>
+    <div className="bg-black font-[font2] text-white min-h-screen p-4 md:p-8 lg:p-12">
+      <div className="max-w-6xl mx-auto">
+        {/* Header Section */}
+        <div className="mb-12 md:mb-16">
+          <h1 className="text-3xl font-[font1] md:text-4xl lg:text-5xl font-bold mb-4">Thoughts and musings of a London branding agency</h1>
+          <h4 className="text-lg md:text-xl text-gray-300 max-w-3xl">Check out the latest insights from our creative agency, about Brand, Digital, Social and Content</h4>
         </div>
-
-        {/* Right Column */}
-        <div className="w-full md:w-1/2 pl-0 md:pl-4">
-          {/* Second Article - Right Top */}
-          <div className="mb-8">
-            <div className="rounded-lg overflow-hidden mb-4">
-              <img 
-                src={imageUrl} 
-                alt="Article thumbnail" 
-                className="w-full h-64 object-cover"
-              />
+        
+        {/* Articles Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 lg:gap-12">
+          {articles.map((article, index) => (
+            <div 
+              key={index}
+              className={`flex flex-col rounded-lg overflow-hidden transition-all duration-300 hover:transform hover:scale-105 cursor-pointer ${index % 2 === 1 ? 'md:mt-16' : ''}`}
+            >
+              <div className="relative h-64 md:h-72 lg:h-80 overflow-hidden">
+                <img 
+                  src={article.image} 
+                  alt={article.title} 
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" 
+                />
+              </div>
+              
+              <div className="p-4 lg:p-6">
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {article.categories.map((category, i) => (
+                    <span 
+                      key={i} 
+                      className="px-3 py-1 bg-white text-black rounded-full text-xs font-medium tracking-wider hover:bg-gray-200 transition-colors"
+                    >
+                      {category}
+                    </span>
+                  ))}
+                </div>
+                
+                <h2 className="text-xl font-[font1] md:text-2xl lg:text-3xl font-bold mb-3 line-clamp-2">{article.title}</h2>
+                <p className="text-gray-300 mb-4">{article.excerpt}</p>
+                
+                <button className="inline-flex items-center text-sm font-medium border-b-2 border-white pb-1 hover:text-gray-300 hover:border-gray-300 transition-colors">
+                  Read Article
+                  <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </button>
+              </div>
             </div>
-            <h2 className="text-3xl font-bold mb-2" style={{ fontFamily: 'font1' }}>
-              Proof in the purpose: how B Corp certification drives business success
-            </h2>
-          </div>
-
-          {/* Fourth Article - Right Bottom */}
-          <div className="mb-8">
-            <div className="rounded-lg overflow-hidden mb-4">
-              <img 
-                src={imageUrl} 
-                alt="Article thumbnail" 
-                className="w-full h-64 object-cover"
-              />
-            </div>
-            <div className="flex gap-2 mb-3">
-              <span className="px-4 py-1 bg-white text-black rounded-full text-sm" style={{ fontFamily: 'font2' }}>
-                CONTENT
-              </span>
-              <span className="px-4 py-1 bg-white text-black rounded-full text-sm" style={{ fontFamily: 'font2' }}>
-                MARKETING
-              </span>
-              <span className="px-4 py-1 bg-white text-black rounded-full text-sm" style={{ fontFamily: 'font2' }}>
-                DIGITAL
-              </span>
-            </div>
-            <h2 className="text-3xl font-bold mb-2" style={{ fontFamily: 'font1' }}>
-              How generative AI is revolutionising digital marketing and SEO
-            </h2>
-            <p className="text-gray-300 mb-2" style={{ fontFamily: 'font2' }}>
-              Generative AI isn't just a tech buzzword; it's transforming digital marketing and shaking...
-            </p>
-            <div className="flex items-center">
-              <div className="w-6 h-1 bg-white mr-2"></div>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path d="M5 12H19" stroke="white" strokeWidth="2" />
-                <path d="M12 5L19 12L12 19" stroke="white" strokeWidth="2" />
-              </svg>
-            </div>
-          </div>
+          ))}
         </div>
-      </div>
-
-      {/* B-Corp Notice */}
-      <div className="p-8 text-right">
-        <p className="text-gray-300" style={{ fontFamily: 'font2' }}>
-          March 2025 is B-Corp month, and as a recently certified business, we're here to highlight...
-        </p>
-      </div>
-
-      {/* View All Button */}
-      <div className="flex justify-end p-8">
-        <button className="border border-white rounded-full px-6 py-3 flex items-center" style={{ fontFamily: 'font2' }}>
-          VIEW ALL INSIGHTS
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="ml-2">
-            <path d="M5 12H19" stroke="white" strokeWidth="2" />
-            <path d="M12 5L19 12L12 19" stroke="white" strokeWidth="2" />
-          </svg>
-        </button>
       </div>
     </div>
   );
