@@ -1,32 +1,188 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+// Register GSAP plugins
+gsap.registerPlugin(ScrollTrigger);
 
 const Footer = () => {
+  // Create refs for elements we want to animate
+  const mainContainerRef = useRef(null);
+  const helpSectionRef = useRef(null);
+  const helpTitleRef = useRef(null);
+  const helpTextRef = useRef(null);
+  const helpButtonRef = useRef(null);
+  const newsletterCardRef = useRef(null);
+  const dividerTopRef = useRef(null);
+  const dividerBottomRef = useRef(null);
+  const contactSectionRef = useRef(null);
+  const socialSectionRef = useRef(null);
+  const carbonSectionRef = useRef(null);
+  const logosRef = useRef(null);
+
+  useEffect(() => {
+    // Main container reveal animation
+    gsap.from(mainContainerRef.current, {
+      opacity: 0,
+      duration: 1,
+      ease: "power2.out"
+    });
+
+    // Help section animations
+    const helpTitleTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: helpSectionRef.current,
+        start: "top bottom-=100",
+        toggleActions: "play none none none"
+      }
+    });
+
+    helpTitleTimeline
+      .from(dividerTopRef.current, {
+        scaleX: 0,
+        transformOrigin: "left center",
+        duration: 1,
+        ease: "power3.out"
+      })
+      .from(helpTitleRef.current, {
+        y: 60,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out"
+      }, "-=0.7")
+      .from(helpTextRef.current, {
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out"
+      }, "-=0.6")
+      .from(helpButtonRef.current, {
+        scale: 0.8,
+        opacity: 0,
+        duration: 0.6,
+        ease: "back.out(1.7)"
+      }, "-=0.4")
+      .from(dividerBottomRef.current, {
+        scaleX: 0,
+        transformOrigin: "right center",
+        duration: 1,
+        ease: "power3.out"
+      }, "-=0.8");
+
+    // Newsletter card animation
+    gsap.from(newsletterCardRef.current, {
+      y: 80,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: newsletterCardRef.current,
+        start: "top bottom-=50",
+        toggleActions: "play none none none"
+      }
+    });
+
+    // Staggered animation for footer sections
+    const footerTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: contactSectionRef.current,
+        start: "top bottom-=100",
+        toggleActions: "play none none none"
+      }
+    });
+    
+    footerTimeline
+      .from(contactSectionRef.current, {
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out"
+      })
+      .from(socialSectionRef.current, {
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out"
+      }, "-=0.6")
+      .from(carbonSectionRef.current, {
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out"
+      }, "-=0.6");
+
+    // Logos staggered animation
+    gsap.from(".logo-item", {
+      scale: 0,
+      opacity: 0,
+      duration: 0.5,
+      stagger: 0.1,
+      ease: "back.out(1.7)",
+      scrollTrigger: {
+        trigger: logosRef.current,
+        start: "top bottom-=50",
+        toggleActions: "play none none none"
+      }
+    });
+
+    // Hover animations for buttons
+    const addButtonHoverEffects = (button) => {
+      button.addEventListener('mouseenter', () => {
+        gsap.to(button, {
+          scale: 1.05,
+          duration: 0.3,
+          ease: "power1.out"
+        });
+      });
+      
+      button.addEventListener('mouseleave', () => {
+        gsap.to(button, {
+          scale: 1,
+          duration: 0.3,
+          ease: "power1.out"
+        });
+      });
+    };
+
+    // Apply hover effects to buttons
+    const buttons = document.querySelectorAll('.hover-scale');
+    buttons.forEach(button => {
+      addButtonHoverEffects(button);
+    });
+
+    // Cleanup function
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen bg-black">
+    <div ref={mainContainerRef} className="min-h-screen bg-black">
       {/* Help Section with Yellow and Blue Backgrounds */}
       <div className='w-full flex flex-col md:flex-row'>
         {/* First Section (Yellow Background) */}
-        <section className="w-full md:w-2/3 px-4   md:px-8 lg:px-16 py-12 md:py-24">
-          <div className="w-full h-px bg-gray-700 mb-12"></div>
+        <section ref={helpSectionRef} className="w-full md:w-2/3 px-4 md:px-8 lg:px-16 py-12 md:py-24">
+          <div ref={dividerTopRef} className="w-full h-px bg-gray-700 mb-12"></div>
           
           <div className="flex flex-col md:flex-row md:items-start md:justify-between">
             <div className="mb-8 md:mb-0 md:w-1/2">
-              <h2 className="text-5xl font-[font1] md:text-6xl lg:text-7xl font-bold text-white leading-tight">
+              <h2 ref={helpTitleRef} className="text-5xl font-[font1] md:text-6xl lg:text-7xl font-bold text-white leading-tight">
                 Can we help?<br />
                 We're ready<br />
                 when you are.
               </h2>
             </div>
             
-            <div className="md:w-1/2 space-y-6">
+            <div ref={helpTextRef} className="md:w-1/2 space-y-6">
               <p className="text-white text-lg md:text-xl">
                 If you want to partner with a strategic branding and design agency who will get to know every facet of your brand, then we're a great fit.
               </p>
               
               <div>
                 <a
+                  ref={helpButtonRef}
                   href="#contact"
-                  className="inline-flex items-center bg-emerald-400 text-black font-medium rounded-full px-6 py-3 transition-all hover:bg-emerald-500"
+                  className="hover-scale inline-flex items-center bg-emerald-400 text-black font-medium rounded-full px-6 py-3 transition-all hover:bg-emerald-500"
                 >
                   LET'S TALK
                   <svg
@@ -48,12 +204,12 @@ const Footer = () => {
             </div>
           </div>
           
-          <div className="w-full h-px bg-gray-700 mt-12"></div>
+          <div ref={dividerBottomRef} className="w-full h-px bg-gray-700 mt-12"></div>
         </section>
 
         {/* Second Section (White Card on Dark Background) */}
         <section className="w-full md:w-1/3 px-4 bg-black md:px-8 lg:px-16 py-12 md:py-24 flex items-center">
-          <div className="bg-white rounded-lg p-6 md:p-8 lg:p-10 w-full">
+          <div ref={newsletterCardRef} className="bg-white rounded-lg p-6 md:p-8 lg:p-10 w-full">
             <h2 className="text-3xl font-[font1] md:text-4xl lg:text-5xl font-bold text-black mb-6">
               KEEP UP TO DATE WITH ALL OUR LATEST NEWS
             </h2>
@@ -62,7 +218,7 @@ const Footer = () => {
               We share regular tips and insights designed to help you rise above your competition.
             </p>
             
-            <button className="bg-emerald-400 text-black font-medium rounded-full px-6 py-3 transition-all hover:bg-emerald-500">
+            <button className="hover-scale bg-emerald-400 text-black font-medium rounded-full px-6 py-3 transition-all hover:bg-emerald-500">
               SIGN UP TO OUR NEWSLETTER
             </button>
           </div>
@@ -73,7 +229,7 @@ const Footer = () => {
       <footer className="px-4 md:px-8 lg:px-16 py-12 md:py-16 bg-black">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
           {/* Contact Information */}
-          <div>
+          <div ref={contactSectionRef}>
             <h3 className="text-white text-2xl font-[font1] font-bold mb-6">Get in touch</h3>
             <div className="space-y-2 text-white font-[font2]">
               <p>
@@ -95,7 +251,7 @@ const Footer = () => {
           </div>
           
           {/* Social Media Links */}
-          <div>
+          <div ref={socialSectionRef}>
             <h3 className="text-white text-2xl font-[font1] font-bold mb-6">Follow</h3>
             <div className="space-y-2 text-white font-[font2]">
               <p><a href="#facebook" className="hover:text-emerald-400">FACEBOOK</a></p>
@@ -108,7 +264,7 @@ const Footer = () => {
           </div>
           
           {/* Carbon Neutral Section */}
-          <div className="lg:col-span-1">
+          <div ref={carbonSectionRef} className="lg:col-span-1">
             <div className="inline-flex items-center bg-transparent border border-emerald-400 rounded-full px-4 py-2 mb-6">
               <span className="text-white mr-1 font-[font2]">0.57g of CO</span>
               <span className="text-white text-xs align-text-bottom font-[font2]">2</span>
@@ -137,13 +293,12 @@ const Footer = () => {
             </div>
             
             {/* Logos Section */}
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8">
-              <img src="/api/placeholder/100/60" alt="Agency Collective" className="h-12" />
-              <img src="/api/placeholder/100/60" alt="Living Wage Foundation" className="h-12" />
-              <img src="/api/placeholder/100/60" alt="Clutch" className="h-12" />
-              <img src="/api/placeholder/100/60" alt="B Corporation" className="h-12" />
-              <img src="/api/placeholder/100/60" alt="Climate Emergency" className="h-12" />
-              
+            <div ref={logosRef} className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8">
+              <img src="/api/placeholder/100/60" alt="Agency Collective" className="logo-item h-12" />
+              <img src="/api/placeholder/100/60" alt="Living Wage Foundation" className="logo-item h-12" />
+              <img src="/api/placeholder/100/60" alt="Clutch" className="logo-item h-12" />
+              <img src="/api/placeholder/100/60" alt="B Corporation" className="logo-item h-12" />
+              <img src="/api/placeholder/100/60" alt="Climate Emergency" className="logo-item h-12" />
             </div>
           </div>
         </div>

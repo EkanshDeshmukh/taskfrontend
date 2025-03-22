@@ -4,36 +4,11 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 const BrandAgencyUI = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const testimonials = [
-    {
-      quote: "A strategic brand agency with great people, delivering great results...what more can you ask for?",
-      role: "Communications Manager",
-      name: "ABHI",
-      rating: "10/10"
-    },
-    {
-      quote: "Transformed our brand identity with exceptional creativity and strategy.",
-      role: "Marketing Director",
-      name: "SARAH",
-      rating: "9/10"
-    },
-    {
-      quote: "Their team consistently delivers innovative solutions that exceed expectations.",
-      role: "CEO",
-      name: "MICHAEL",
-      rating: "10/10"
-    },
-    {
-      quote: "Their team consistently delivers innovative solutions that exceed expectations.",
-      role: "CEO",
-      name: "MICHAEL",
-      rating: "100/10"
-    },
-    {
-      quote: "Their team consistently delivers innovative solutions that exceed expectations.",
-      role: "CEO",
-      name: "MICHAEL",
-      rating: "0/10"
-    }
+    { quote: "A strategic brand agency with great people, delivering great results...what more can you ask for?", role: "Communications Manager", name: "ABHI", rating: "10/10" },
+    { quote: "Transformed our brand identity with exceptional creativity and strategy.", role: "Marketing Director", name: "SARAH", rating: "9/10" },
+    { quote: "Their innovative thinking reshaped our customer experience entirely.", role: "Head of Operations", name: "JAMES", rating: "9.5/10" },
+    { quote: "Their expertise in digital marketing skyrocketed our online presence.", role: "E-commerce Manager", name: "PRIYA", rating: "8.5/10" },
+    { quote: "A game-changing partner for businesses seeking growth.", role: "Entrepreneur", name: "RAHUL", rating: "10/10" }
   ];
 
   const handleNext = () => {
