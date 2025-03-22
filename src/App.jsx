@@ -8,6 +8,7 @@ import MarqueeWithSwipper from './components/MarqueeWithSwipper';
 import ThirdPage from './components/ThirdPage';
 import Blog from './components/Blog';
 import CustomCursor from './components/CustomCursor';
+import SocialPage from './components/SocialPage';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <SecondPage />
       <ThirdPage />
       <FourthPage />
+      <SocialPage/>
       <MarqueeWithSwipper />
       <FAQSection />
       <Blog />
