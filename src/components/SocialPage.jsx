@@ -45,11 +45,11 @@ const SocialPage = () => {
   return (
     <>
     
-    <div id="page" ref={sectionRef} className='relative w-full h-[110vh] bg-black overflow-hidden'>
+    <div id="page" ref={sectionRef} className='relative  font-[font2] w-full h-[110vh] bg-black overflow-hidden'>
     <section class="bg-[#e9c4f0] absolute z-[9] top-0 w-full h-[100vh] text-black py-10 px-4 md:px-24 ">
         <div class="flex flex-col justify-between w-full items-start gap-10 md:gap-16">
         <div class="flex relative justify-between items-center w-full">
-            <h1 class="text-[60px] md:text-[140px] leading-none font-black tracking-tight">
+            <h1 class="text-[60px] font-[font1] md:text-[140px] leading-none font-black tracking-tight">
             BRAND
             <span class="inline-block w-5 h-5 bg-black rounded-full ml-2 mb-5"></span>
             </h1>
@@ -85,7 +85,7 @@ const SocialPage = () => {
   <section ref={boxRef} class="bg-[#A9F0D1] absolute z-[99] top-[100%] w-full h-[100vh] text-black py-10 px-4 md:px-24 rounded-bl-[60px]">
   <div class="flex flex-col justify-between w-full items-start gap-10 md:gap-16">
         <div class="flex relative justify-between items-center w-full">
-            <h1 class="text-[60px] md:text-[140px] leading-none font-black tracking-tight">
+            <h1 class="text-[60px]  font-[font1] md:text-[140px] leading-none font-black tracking-tight">
             BRAND
             <span class="inline-block w-5 h-5 bg-black rounded-full ml-2 mb-5"></span>
             </h1>
@@ -121,7 +121,7 @@ const SocialPage = () => {
   <section ref={boxRef1} class="bg-[#ADE8FF] absolute z-[999] top-[100%] w-full h-[100vh] text-black py-10 px-4 md:px-24 rounded-bl-[60px]">
   <div class="flex flex-col justify-between w-full items-start gap-10 md:gap-16">
         <div class="flex relative justify-between items-center w-full">
-            <h1 class="text-[60px] md:text-[140px] leading-none font-black tracking-tight">
+            <h1 class="text-[60px]  font-[font1] md:text-[140px] leading-none font-black tracking-tight">
             BRAND
             <span class="inline-block w-5 h-5 bg-black rounded-full ml-2 mb-5"></span>
             </h1>
@@ -157,7 +157,7 @@ const SocialPage = () => {
   <section ref={boxRef2} class="bg-[#E5BEED] absolute z-[9999] top-[100%] w-full h-[100vh] text-black py-10 px-4 md:px-24 rounded-bl-[60px]">
   <div class="flex flex-col justify-between w-full items-start gap-10 md:gap-16">
         <div class="flex relative justify-between items-center w-full">
-            <h1 class="text-[60px] md:text-[140px] leading-none font-black tracking-tight">
+            <h1 class="text-[60px]  font-[font1] md:text-[140px] leading-none font-black tracking-tight">
             BRAND
             <span class="inline-block w-5 h-5 bg-black rounded-full ml-2 mb-5"></span>
             </h1>
