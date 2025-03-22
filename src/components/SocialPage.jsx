@@ -21,7 +21,7 @@ const SocialPage = () => {
               end:"100% -200%",
               scrub:true,
               pin:true,
-              markers:true,
+              
         }
       }
     )
