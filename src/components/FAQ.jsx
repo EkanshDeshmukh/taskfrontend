@@ -36,7 +36,7 @@ const BrandingProblems = () => {
   };
 
   return (
-    <div style={{background: 'linear-gradient(180deg, #070E0E, #081818)' }} className="min-h-screen text-white">
+    <div style={{ background: 'linear-gradient(180deg, #070E0E, #081818)' }} className="min-h-screen text-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-16 py-12 sm:py-16 md:py-24">
         <h1 className="font-[font1] text-4xl sm:text-5xl md:text-7xl mb-12 sm:mb-16 md:mb-24">
           Brand challenges we solve.
@@ -44,10 +44,10 @@ const BrandingProblems = () => {
 
         <div className="relative">
           {/* Pink Banner */}
-          <motion.div 
-            className="absolute -top-8 sm:-top-10 md:-top-16 -left-2 sm:-left-4 md:-left-8 transform -rotate-6 z-10" 
-            initial={{ opacity: 0, y: -50 }} 
-            animate={{ opacity: 1, y: 0 }} 
+          <motion.div
+            className="absolute -top-8 sm:-top-10 md:-top-16 -left-2 sm:-left-4 md:-left-8 transform -rotate-6 z-10"
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
             <div className="px-3 py-2 sm:px-6 sm:py-3 md:px-10 md:py-5">
@@ -60,12 +60,9 @@ const BrandingProblems = () => {
           {/* Problems Container */}
           <div className="mt-12 sm:mt-16 md:mt-24 border rounded-xl sm:rounded-2xl md:rounded-3xl border-gray-600 p-4 sm:p-6 md:p-12 relative">
             {problems.map((problem, index) => (
-              <div 
-                key={index} 
-                className="border-b border-gray-700 last:border-b-0 py-4 sm:py-6 md:py-8"
-              >
-                <button 
-                  className="flex items-center w-full justify-start text-left cursor-pointer hover:opacity-80 transition-opacity duration-200" 
+              <div key={index} className="border-b border-gray-700 last:border-b-0 py-4 sm:py-6 md:py-8">
+                <button
+                  className="flex items-center w-full justify-start text-left cursor-pointer hover:opacity-80 transition-opacity duration-200"
                   onClick={() => toggleProblem(index)}
                   aria-expanded={index === activeIndex}
                   aria-controls={`problem-content-${index}`}
@@ -81,7 +78,7 @@ const BrandingProblems = () => {
                     {problem.title}
                   </h3>
                 </button>
-                
+
                 <AnimatePresence>
                   {index === activeIndex && (
                     <motion.div
@@ -103,10 +100,10 @@ const BrandingProblems = () => {
             ))}
           </div>
         </div>
-        
-        {/* Work with us button */}
-        <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8 z-20">
-          <div className="bg-green-300 text-black rounded-full w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 flex flex-col items-center justify-center font-[font1] font-bold text-sm sm:text-lg md:text-2xl leading-tight cursor-pointer hover:bg-green-400 transition-colors duration-300">
+
+        {/* Floating Button with Animation */}
+        <div style={{}} className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8 z-20">
+          <div className="bg-green-300 text-black rounded-full w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 flex flex-col items-center justify-center font-[font1] font-bold text-sm sm:text-lg md:text-2xl leading-tight cursor-pointer hover:bg-green-400 transition-colors duration-300  rotateAnimation">
             <div className="text-center">
               WORK<br />WITH US?
             </div>

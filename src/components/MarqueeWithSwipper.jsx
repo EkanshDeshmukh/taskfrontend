@@ -142,7 +142,6 @@ const BrandAgencyUI = () => {
                         <p className="font2 text-sm md:text-base font-bold">{testimonial.name}</p>
                       </div>
                       <div className="flex items-center self-end sm:self-auto">
-                        <div className="h-2 md:h-3 w-2 md:w-3 rounded-full bg-green-400 mr-2"></div>
                         <span className="font2 text-sm md:text-base mr-2">{testimonial.rating}</span>
                         <div className="flex">
                           <button 
