@@ -24,7 +24,7 @@ export default function BrandingSection() {
       opacity: 1, 
       y: 0, 
       duration: 1.2,
-      delay: 0.8 
+      delay: 1.2 
     })
     .to(textRef.current, { 
       opacity: 1, 
