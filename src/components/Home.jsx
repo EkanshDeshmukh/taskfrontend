@@ -18,6 +18,10 @@ const MenuBar = ({ setIsOpen, isOpen }) => {
   );
 };
 
+ 
+ 
+ 
+
 const MenuPage = () => {
   const menuRef = useRef(null);
   const itemsRef = useRef([]);
@@ -31,95 +35,131 @@ const MenuPage = () => {
 
     // Animate menu items
     gsap.fromTo(itemsRef.current,
-      { y: 50, opacity: 0 },
+      { y: 40, opacity: 0 },
       { 
         y: 0, 
         opacity: 1, 
         duration: 0.5,
-        stagger: 0.1,
+        stagger: 0.11,
         ease: "power2.out"
       }
     );
   }, []);
 
+  // Function to create menu section
+  const renderMenuSection = (title, items, isFirstSection = false) => (
+    <div className={`mb-12 ${isFirstSection ? 'mt-16 md:mt-8' : ''}`}>
+      <p 
+        ref={el => itemsRef.current.push(el)} 
+        style={{ fontFamily: 'font2' }}
+        className="text-xl md:text-2xl mb-6"
+      >
+        {title}
+      </p>
+      <ul className="space-y-2">
+        {items.map((item) => (
+          <li
+            key={item}
+            ref={el => itemsRef.current.push(el)}
+            style={{ fontFamily: 'font1' }}
+            className="text-4xl md:text-5xl uppercase hover:opacity-70 cursor-pointer transition-opacity duration-300"
+          >
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+
   return (
-    <div ref={menuRef} className="fixed inset-0 bg-purple-200 z-10 flex flex-col items-center justify-center p-6 md:p-12 text-black overflow-auto">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-16 text-center">
-        {/* Services Column */}
-        <div>
-          <p ref={el => itemsRef.current.push(el)} className="text-2xl font-[font2] mb-8">Our superpower toolkit</p>
-          <ul className="space-y-4 font-[font1]">
-            {['BRAND', 'DIGITAL', 'MARKETING', 'SOCIAL', 'DESIGN', 'BIDS & TENDERS'].map((item, index) => (
-              <li
-                key={item}
-                ref={el => itemsRef.current.push(el)}
-                className="text-5xl font-bold uppercase hover:opacity-70 cursor-pointer"
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
+    <div 
+      ref={menuRef} 
+      className="fixed inset-0 bg-purple-200 z-10 flex flex-col p-8 md:p-12 text-black overflow-auto"
+    >
+      <div className="md:hidden w-full">
+        {/* Mobile layout - vertical stack */}
+        {renderMenuSection("Our superpower toolkit", [
+          'BRAND',
+          'DIGITAL',
+          'MARKETING',
+          'SOCIAL',
+          'DESIGN',
+          'BIDS & TENDERS'
+        ], true)}
         
-        {/* Projects Column */}
-        <div>
-          <p ref={el => itemsRef.current.push(el)} className="text-2xl font-[font2] mb-8">Projects</p>
-          <ul className="space-y-4 font-[font1] mb-16">
-            {['CASE STUDIES', 'HOW WE WORK'].map((item) => (
-              <li
-                key={item}
-                ref={el => itemsRef.current.push(el)}
-                className="text-5xl font-bold uppercase hover:opacity-70 cursor-pointer"
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
-          
-          <p ref={el => itemsRef.current.push(el)} className="text-2xl font-[font2] mb-8">Thoughts and musings</p>
-          <ul className="space-y-4 font-[font1]">
-            {['NEWS & INSIGHTS', 'PODCASTS'].map((item) => (
-              <li
-                key={item}
-                ref={el => itemsRef.current.push(el)}
-                className="text-5xl font-bold uppercase hover:opacity-70 cursor-pointer"
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
+        {renderMenuSection("Projects", [
+          'CASE STUDIES',
+          'HOW WE WORK'
+        ])}
         
-        {/* Culture & Contact Column */}
-        <div>
-          <p ref={el => itemsRef.current.push(el)} className="text-2xl font-[font2] mb-8">Culture</p>
-          <ul className="space-y-4 font-[font1] mb-16">
-            {['ABOUT US', 'B CORP'].map((item) => (
-              <li
-                key={item}
-                ref={el => itemsRef.current.push(el)}
-                className="text-5xl font-bold uppercase hover:opacity-70 cursor-pointer"
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
+        {renderMenuSection("Thoughts and musings", [
+          'NEWS & INSIGHTS',
+          'PODCASTS'
+        ])}
+        
+        {renderMenuSection("Culture", [
+          'ABOUT US',
+          'B CORP'
+        ])}
+        
+        {renderMenuSection("Get in touch", [
+          'CONTACT US'
+        ])}
+      </div>
+      
+      <div className="hidden md:flex md:justify-center items-start w-full mt-12">
+        {/* Desktop layout - 3 columns with equal spacing */}
+        <div className="grid grid-cols-3 gap-16 w-full max-w-7xl">
+          <div>
+            {renderMenuSection("Our superpower toolkit", [
+              'BRAND',
+              'DIGITAL',
+              'MARKETING',
+              'SOCIAL',
+              'DESIGN',
+              'BIDS & TENDERS'
+            ], true)}
+          </div>
           
-          <p ref={el => itemsRef.current.push(el)} className="text-2xl font-[font2] mb-8">Get in touch</p>
-          <ul className="space-y-4 font-[font1]">
-            <li ref={el => itemsRef.current.push(el)} className="text-5xl font-bold uppercase hover:opacity-70 cursor-pointer">
-              CONTACT US
-            </li>
-          </ul>
+          <div>
+            <div className="mb-16">
+              {renderMenuSection("Projects", [
+                'CASE STUDIES',
+                'HOW WE WORK'
+              ])}
+            </div>
+            
+            {renderMenuSection("Thoughts and musings", [
+              'NEWS & INSIGHTS',
+              'PODCASTS'
+            ])}
+          </div>
+          
+          <div>
+            <div className="mb-16">
+              {renderMenuSection("Culture", [
+                'ABOUT US',
+                'B CORP'
+              ])}
+            </div>
+            
+            {renderMenuSection("Get in touch", [
+              'CONTACT US'
+            ])}
+          </div>
         </div>
       </div>
       
-      <div className="mt-16 flex justify-center">
-        <div ref={el => itemsRef.current.push(el)} className="w-4 h-4 bg-green-300 rounded-full"></div>
-      </div>
+      
     </div>
   );
 };
+
+
+
+
+
+
 
 const HeroScroll = () => {
   const scrollRef = useRef(null);
