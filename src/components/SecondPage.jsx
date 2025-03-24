@@ -94,8 +94,7 @@ export default function BrandingSection() {
         >
           Your brand deserves to make an impact. Let's bring your vision into focus.
         </p>
-        
-        {/* Green button */}
+         
         <div className="flex justify-center">
           <button 
             ref={buttonRef}

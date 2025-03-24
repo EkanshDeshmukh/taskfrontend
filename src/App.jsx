@@ -9,6 +9,7 @@ import ThirdPage from './components/ThirdPage';
 import Blog from './components/Blog';
 import CustomCursor from './components/CustomCursor';
 import SocialPage from './components/SocialPage';
+import Brandslogo from './components/Brandslogo';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <MarqueeWithSwipper />
       <FAQSection />
       <Blog />
+      <Brandslogo />
       <Footer />
     </div>
   );
