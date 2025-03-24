@@ -7,8 +7,8 @@ const CompanyShowcase = () => {
       <div className="text-center mb-24">
         <h1 className="text-4xl md:text-6xl font-[font1] font-bold mb-2">
           <span className="text-white">Top </span>
-          <span className="text-emerald-400">companies</span>
-          <span className="text-white"> our students</span>
+          <span className="text-emerald-400">Brands</span>
+          <span className="text-white"> our company</span>
         </h1>
         <h1 className="text-4xl font-[font1] md:text-6xl font-bold text-white">
           working with
