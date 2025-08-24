@@ -2,7 +2,7 @@
  
 @font-face {
   font-family: 'font1';
-  src: url('font/National2Compressed-Extrabold.woff2') format('woff2');
+  src: url('public/fonts/OnlineWebFonts_COM_5fd7bfa5cfee13a3f551f6303c779e2e/Fancy Cut Pro/Fancy Cut Pro.ttf') format('woff2');
 }
 @font-face {
   font-family: 'font2';
@@ -19,4 +19,8 @@
 
 .animate-rotate {
   animation: rotateAnimation 1.5s infinite ease-in-out;
+}
+
+*{
+  font-family: 'font1';
 }
